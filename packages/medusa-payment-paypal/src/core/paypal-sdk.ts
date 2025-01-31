@@ -117,7 +117,7 @@ export class PaypalSdk {
   ): Promise<GetAuthorizationPaymentResponse> {
     const url = PaypalApiPath.AUTHORIZATION_GET.replace("{id}", authorizationId)
 
-    return await this.httpClient_.request({ url })
+    return await this.httpClient_.request({ url, method: "GET" })
   }
 
   async verifyWebhook(data: VerifyWebhookSignature) {
