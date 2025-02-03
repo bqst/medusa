@@ -897,7 +897,7 @@ paths:
       description: Create a Batch Job to be executed asynchronously in the Medusa backend. If `dry_run` is set to `true`, the batch job will not be executed until the it is confirmed, which can be done using the Confirm Batch Job API Route.
       externalDocs:
         description: How to create a batch job
-        url: https://docs.medusajs.com/development/batch-jobs/create#create-batch-job
+        url: https://docs.medusajs.com/v1/development/batch-jobs/create#create-batch-job
       x-authenticated: true
       requestBody:
         content:
@@ -10418,7 +10418,7 @@ paths:
       description: Create a Claim for an order. If a return shipping method is specified, a return will also be created and associated with the claim. If the claim's type is `refund`, the refund is processed as well.
       externalDocs:
         description: How are claims created
-        url: https://docs.medusajs.com/modules/orders/claims#how-are-claims-created
+        url: https://docs.medusajs.com/v1/modules/orders/claims#how-are-claims-created
       x-authenticated: true
       parameters:
         - in: path
@@ -10662,7 +10662,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Canceling a claim
-        url: https://docs.medusajs.com/modules/orders/claims#cancel-a-claim
+        url: https://docs.medusajs.com/v1/modules/orders/claims#cancel-a-claim
       parameters:
         - in: path
           name: id
@@ -10761,7 +10761,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Fulfill a claim
-        url: https://docs.medusajs.com/modules/orders/claims#fulfill-a-claim
+        url: https://docs.medusajs.com/v1/modules/orders/claims#fulfill-a-claim
       parameters:
         - in: path
           name: id
@@ -10983,7 +10983,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Fulfill a claim
-        url: https://docs.medusajs.com/modules/orders/claims#fulfill-a-claim
+        url: https://docs.medusajs.com/v1/modules/orders/claims#fulfill-a-claim
       parameters:
         - in: path
           name: id
@@ -11195,7 +11195,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Fulfillments of orders
-        url: https://docs.medusajs.com/modules/orders/#fulfillments-in-orders
+        url: https://docs.medusajs.com/v1/modules/orders/#fulfillments-in-orders
       parameters:
         - in: path
           name: id
@@ -11656,7 +11656,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Return creation process
-        url: https://docs.medusajs.com/modules/orders/returns#returns-process
+        url: https://docs.medusajs.com/v1/modules/orders/returns#returns-process
       parameters:
         - in: path
           name: id
@@ -11785,7 +11785,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Fulfillments of orders
-        url: https://docs.medusajs.com/modules/orders/#fulfillments-in-orders
+        url: https://docs.medusajs.com/v1/modules/orders/#fulfillments-in-orders
       parameters:
         - in: path
           name: id
@@ -12012,7 +12012,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: How are swaps created
-        url: https://docs.medusajs.com/modules/orders/swaps#how-are-swaps-created
+        url: https://docs.medusajs.com/v1/modules/orders/swaps#how-are-swaps-created
       parameters:
         - in: path
           name: id
@@ -12136,7 +12136,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Canceling a swap
-        url: https://docs.medusajs.com/modules/orders/swaps#canceling-a-swap
+        url: https://docs.medusajs.com/v1/modules/orders/swaps#canceling-a-swap
       parameters:
         - in: path
           name: id
@@ -12244,7 +12244,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Handling a swap's fulfillment
-        url: https://docs.medusajs.com/modules/orders/swaps#handling-swap-fulfillment
+        url: https://docs.medusajs.com/v1/modules/orders/swaps#handling-swap-fulfillment
       parameters:
         - in: path
           name: id
@@ -12473,7 +12473,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Handling a swap's payment
-        url: https://docs.medusajs.com/modules/orders/swaps#handling-swap-payment
+        url: https://docs.medusajs.com/v1/modules/orders/swaps#handling-swap-payment
       parameters:
         - in: path
           name: id
@@ -12581,7 +12581,7 @@ paths:
       x-authenticated: true
       externalDocs:
         description: Handling swap fulfillments
-        url: https://docs.medusajs.com/modules/orders/swaps#handling-swap-fulfillment
+        url: https://docs.medusajs.com/v1/modules/orders/swaps#handling-swap-fulfillment
       parameters:
         - in: path
           name: id
@@ -16609,7 +16609,7 @@ paths:
       description: Set the metadata of a Product. It can be any key-value pair, which allows adding custom data to a product.
       externalDocs:
         description: Learn about the metadata attribute, and how to delete and update it.
-        url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+        url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
       x-authenticated: true
       parameters:
         - in: path
@@ -26045,10 +26045,10 @@ paths:
     post:
       operationId: PostUsersUserPasswordToken
       summary: Request Password Reset
-      description: Generate a password token for an admin user with a given email. This also triggers the `user.password_reset` event. So, if you have a Notification Service installed that can handle this event, a notification, such as an email, will be sent to the user. The token is triggered as part of the `user.password_reset` event's payload. That token must be used later to reset the password using the [Reset Password](https://docs.medusajs.com/api/admin#users_postusersuserpassword) API Route.
+      description: Generate a password token for an admin user with a given email. This also triggers the `user.password_reset` event. So, if you have a Notification Service installed that can handle this event, a notification, such as an email, will be sent to the user. The token is triggered as part of the `user.password_reset` event's payload. That token must be used later to reset the password using the [Reset Password](https://docs.medusajs.com/v1/api/admin#users_postusersuserpassword) API Route.
       externalDocs:
         description: How to reset a user's password
-        url: https://docs.medusajs.com/modules/users/admin/manage-profile#reset-password
+        url: https://docs.medusajs.com/v1/modules/users/admin/manage-profile#reset-password
       requestBody:
         content:
           application/json:
@@ -26135,7 +26135,7 @@ paths:
       description: Reset the password of an admin User using their reset password token. A user must request to reset their password first before attempting to reset their password with this request.
       externalDocs:
         description: How to reset a user's password
-        url: https://docs.medusajs.com/modules/users/admin/manage-profile#reset-password
+        url: https://docs.medusajs.com/v1/modules/users/admin/manage-profile#reset-password
       requestBody:
         content:
           application/json:
@@ -26550,7 +26550,7 @@ paths:
             type: string
             externalDocs:
               description: Price selection context overview
-              url: https://docs.medusajs.com/modules/price-lists/price-selection-strategy#context-object
+              url: https://docs.medusajs.com/v1/modules/price-lists/price-selection-strategy#context-object
         - in: query
           name: currency_code
           style: form
@@ -26560,7 +26560,7 @@ paths:
             type: string
             externalDocs:
               description: Price selection context overview
-              url: https://docs.medusajs.com/modules/price-lists/price-selection-strategy#context-object
+              url: https://docs.medusajs.com/v1/modules/price-lists/price-selection-strategy#context-object
         - in: query
           name: customer_id
           style: form
@@ -26570,7 +26570,7 @@ paths:
             type: string
             externalDocs:
               description: Price selection context overview
-              url: https://docs.medusajs.com/modules/price-lists/price-selection-strategy#context-object
+              url: https://docs.medusajs.com/v1/modules/price-lists/price-selection-strategy#context-object
         - in: query
           name: title
           style: form
@@ -27116,7 +27116,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AddressCreatePayload:
       type: object
       description: Address fields used when creating an address.
@@ -28794,7 +28794,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostCollectionsReq:
       type: object
       description: The product collection's details.
@@ -28812,7 +28812,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostCurrenciesCurrencyReq:
       type: object
       description: The details to update in the currency
@@ -28850,7 +28850,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostCustomerGroupsReq:
       type: object
       description: The details of the customer group to create.
@@ -28865,7 +28865,7 @@ components:
           description: Metadata of the customer group.
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostCustomersCustomerReq:
       type: object
       description: The details of the customer to update.
@@ -28903,7 +28903,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostCustomersReq:
       type: object
       description: The details of the customer to create.
@@ -28935,7 +28935,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostDiscountsDiscountConditions:
       type: object
       required:
@@ -29035,7 +29035,7 @@ components:
           description: An optional set of key-value pairs to hold additional information.
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostDiscountsDiscountReq:
       type: object
       description: The details of the discount to update.
@@ -29134,7 +29134,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostDiscountsReq:
       type: object
       description: The details of the discount to create.
@@ -29245,7 +29245,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostDraftOrdersDraftOrderLineItemsItemReq:
       type: object
       description: The details to update of the line item.
@@ -29264,7 +29264,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostDraftOrdersDraftOrderLineItemsReq:
       type: object
       description: The details of the line item to create.
@@ -29289,7 +29289,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostDraftOrdersDraftOrderRegisterPaymentRes:
       type: object
       description: The order's details.
@@ -29396,7 +29396,7 @@ components:
                 type: object
                 externalDocs:
                   description: Learn about the metadata attribute, and how to delete and update it.
-                  url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+                  url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         region_id:
           description: The ID of the region for the draft order
           type: string
@@ -29439,7 +29439,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostGiftCardsGiftCardReq:
       type: object
       description: The details to update of the gift card.
@@ -29462,7 +29462,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostGiftCardsReq:
       type: object
       description: The details of the gift card to create.
@@ -29487,7 +29487,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostInventoryItemsInventoryItemReq:
       type: object
       description: The attributes to update in an inventory item.
@@ -29623,7 +29623,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostInvitesInviteAcceptReq:
       type: object
       description: The details of the invite to be accepted.
@@ -29729,7 +29729,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostOrderEditsOrderEditReq:
       type: object
       description: The details to update of the order edit.
@@ -29757,7 +29757,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         no_notification:
           description: If set to `true`, no notification will be sent to the customer related to this Claim.
           type: boolean
@@ -29826,7 +29826,7 @@ components:
                 type: object
                 externalDocs:
                   description: Learn about the metadata attribute, and how to delete and update it.
-                  url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+                  url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         shipping_methods:
           description: The Shipping Methods to send the additional Line Items with.
           type: array
@@ -29853,7 +29853,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostOrdersOrderClaimsClaimShipmentsReq:
       type: object
       required:
@@ -29975,7 +29975,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostOrdersOrderFulfillmentsReq:
       type: object
       description: The details of the fulfillment to be created.
@@ -30008,7 +30008,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostOrdersOrderRefundsReq:
       type: object
       description: The details of the order refund.
@@ -30267,7 +30267,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         no_notification:
           description: If set to `true`, no notification will be sent to the customer related to this swap.
           type: boolean
@@ -30551,7 +30551,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostProductCategoriesReq:
       type: object
       description: The details of the product category to create.
@@ -30581,7 +30581,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostProductsProductMetadataReq:
       type: object
       required:
@@ -30760,12 +30760,12 @@ components:
                 type: object
                 externalDocs:
                   description: Learn about the metadata attribute, and how to delete and update it.
-                  url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+                  url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
               prices:
                 type: array
                 description: An array of product variant prices. A product variant can have different prices for each region or currency code.
                 externalDocs:
-                  url: https://docs.medusajs.com/modules/products/admin/manage-products#product-variant-prices
+                  url: https://docs.medusajs.com/v1/modules/products/admin/manage-products#product-variant-prices
                   description: Product variant pricing.
                 items:
                   type: object
@@ -30837,7 +30837,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostProductsProductVariantsReq:
       type: object
       description: The details of the product variant to create.
@@ -30901,12 +30901,12 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         prices:
           type: array
           description: An array of product variant prices. A product variant can have different prices for each region or currency code.
           externalDocs:
-            url: https://docs.medusajs.com/modules/products/admin/manage-products#product-variant-prices
+            url: https://docs.medusajs.com/v1/modules/products/admin/manage-products#product-variant-prices
             description: Product variant pricing.
           items:
             type: object
@@ -31002,12 +31002,12 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         prices:
           type: array
           description: An array of product variant prices. A product variant can have different prices for each region or currency code.
           externalDocs:
-            url: https://docs.medusajs.com/modules/products/admin/manage-products#product-variant-prices
+            url: https://docs.medusajs.com/v1/modules/products/admin/manage-products#product-variant-prices
             description: Product variant pricing.
           items:
             type: object
@@ -31218,12 +31218,12 @@ components:
                 type: object
                 externalDocs:
                   description: Learn about the metadata attribute, and how to delete and update it.
-                  url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+                  url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
               prices:
                 type: array
                 description: An array of product variant prices. A product variant can have different prices for each region or currency code.
                 externalDocs:
-                  url: https://docs.medusajs.com/modules/products/admin/manage-products#product-variant-prices
+                  url: https://docs.medusajs.com/v1/modules/products/admin/manage-products#product-variant-prices
                   description: Product variant pricing.
                 items:
                   type: object
@@ -31252,7 +31252,7 @@ components:
                 type: array
                 description: An array of Product Option values that the variant corresponds to. The option values should be added into the array in the same index as in the `options` field of the product.
                 externalDocs:
-                  url: https://docs.medusajs.com/modules/products/admin/manage-products#create-a-product
+                  url: https://docs.medusajs.com/v1/modules/products/admin/manage-products#create-a-product
                   description: Example of how to create a product with options and variants
                 items:
                   type: object
@@ -31291,7 +31291,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostProductsToCollectionReq:
       type: object
       description: The details of the products to add to the collection.
@@ -31383,7 +31383,7 @@ components:
         automatic_taxes:
           description: If set to `true`, the Medusa backend will automatically calculate taxes for carts in this region. If set to `false`, the taxes must be calculated manually.
           externalDocs:
-            url: https://docs.medusajs.com/modules/taxes/storefront/manual-calculation
+            url: https://docs.medusajs.com/v1/modules/taxes/storefront/manual-calculation
             description: How to calculate taxes in a storefront.
           type: boolean
         gift_cards_taxable:
@@ -31492,7 +31492,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostReservationsReservationReq:
       type: object
       description: The details to update of the reservation.
@@ -31511,7 +31511,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostReturnReasonsReasonReq:
       type: object
       description: The details to update of the return reason.
@@ -31530,7 +31530,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostReturnReasonsReq:
       type: object
       description: The details of the return reason to create.
@@ -31555,7 +31555,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostReturnsReturnReceiveReq:
       type: object
       description: The details of the received return.
@@ -31656,7 +31656,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         requirements:
           description: The requirements that must be satisfied for the Shipping Option to be available.
           type: array
@@ -31747,7 +31747,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         includes_tax:
           description: Tax included in prices of shipping option
           x-featureFlag: tax_inclusive_pricing
@@ -31764,7 +31764,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         type:
           description: The type of the Shipping Profile
           type: string
@@ -31800,7 +31800,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostStockLocationsLocationReq:
       type: object
       description: The details to update of the stock location.
@@ -31818,7 +31818,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         address:
           description: The data of an associated address to create or update.
           $ref: '#/components/schemas/StockLocationAddressInput'
@@ -31841,7 +31841,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         address:
           description: A new stock location address to create and associate with the stock location. Only required if `address_id` is not provided.
           $ref: '#/components/schemas/StockLocationAddressInput'
@@ -31922,7 +31922,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminPostTaxRatesReq:
       type: object
       description: The details of the tax rate to create.
@@ -33193,7 +33193,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminUpdateUserRequest:
       type: object
       properties:
@@ -33218,7 +33218,7 @@ components:
           type: object
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     AdminUploadsDownloadUrlRes:
       type: object
       description: The download URL details.
@@ -33637,7 +33637,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         context:
           description: The context of the cart which can include info like IP or user agent.
@@ -33677,7 +33677,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         shipping_total:
           description: The total of shipping
           type: integer
@@ -33783,7 +33783,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ClaimItem:
       title: Claim Item
       description: A claim item is an item created as part of a claim. It references an item in the order that should be exchanged or refunded.
@@ -33881,7 +33881,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ClaimOrder:
       title: Claim
       description: A Claim represents a group of faulty or missing items. It consists of claim items that refer to items in the original order that should be replaced or refunded. It also includes details related to shipping and fulfillment.
@@ -34013,7 +34013,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         no_notification:
           description: Flag for describing whether or not notifications related to this should be send.
           nullable: true
@@ -34024,7 +34024,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
     ClaimTag:
       title: Claim Tag
@@ -34067,7 +34067,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     Country:
       title: Country
       description: Country details
@@ -34243,7 +34243,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     Customer:
       title: Customer
       description: A customer can make purchases in your store and manage their profile.
@@ -34337,7 +34337,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     CustomerGroup:
       title: Customer Group
       description: A customer group that can be used to organize customers into groups of similar traits.
@@ -34391,7 +34391,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     DecoratedInventoryItemDTO:
       type: object
       allOf:
@@ -34525,7 +34525,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     DiscountCondition:
       title: Discount Condition
       description: Holds rule conditions for when a discount is applicable
@@ -34619,7 +34619,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     DiscountConditionCustomerGroup:
       title: Product Tag Discount Condition
       description: Associates a discount condition with a customer group
@@ -34663,7 +34663,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     DiscountConditionProduct:
       title: Product Discount Condition
       description: This represents the association between a discount condition and a product
@@ -34709,7 +34709,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     DiscountConditionProductCollection:
       title: Product Collection Discount Condition
       description: This represents the association between a discount condition and a product collection
@@ -34755,7 +34755,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     DiscountConditionProductTag:
       title: Product Tag Discount Condition
       description: This represents the association between a discount condition and a product tag
@@ -34801,7 +34801,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     DiscountConditionProductType:
       title: Product Type Discount Condition
       description: This represents the association between a discount condition and a product type
@@ -34847,7 +34847,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     DiscountRule:
       title: Discount Rule
       description: A discount rule defines how a Discount is calculated when applied to a Cart.
@@ -34919,7 +34919,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     DraftOrder:
       title: DraftOrder
       description: A draft order is created by an admin without direct involvement of the customer. Once its payment is marked as captured, it is transformed into an order.
@@ -34993,7 +34993,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         created_at:
           description: The date with timezone at which the resource was created.
@@ -35011,7 +35011,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     Error:
       title: Response Error
       type: object
@@ -35205,7 +35205,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         created_at:
           description: The date with timezone at which the resource was created.
@@ -35223,7 +35223,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     FulfillmentItem:
       title: Fulfillment Item
       description: This represents the association between a Line Item and a Fulfillment.
@@ -35360,7 +35360,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     GiftCardTransaction:
       title: Gift Card Transaction
       description: Gift Card Transactions are created once a Customer uses a Gift Card to pay for their Order.
@@ -35438,7 +35438,7 @@ components:
           description: The unique randomly generated key used to determine the state of a process.
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         created_at:
           description: Date which the idempotency key was locked.
@@ -35521,7 +35521,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     InventoryItemDTO:
       type: object
       required:
@@ -35690,7 +35690,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     LineItem:
       title: Line Item
       description: Line Items are created when a product is added to a Cart. When Line Items are purchased they will get copied to the resulting order, swap, or claim, and can eventually be referenced in Fulfillments and Returns. Line items may also be used for order edits.
@@ -35916,7 +35916,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     LineItemAdjustment:
       title: Line Item Adjustment
       description: A Line Item Adjustment includes details on discounts applied on a line item.
@@ -35968,7 +35968,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     LineItemTaxLine:
       title: Line Item Tax Line
       description: A Line Item Tax Line represents the taxes applied on a line item.
@@ -36025,7 +36025,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ModulesResponse:
       type: array
       items:
@@ -36581,7 +36581,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         external_id:
           description: The ID of an external order.
@@ -36674,7 +36674,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         sales_channels:
           description: The associated sales channels.
           type: array
@@ -37003,7 +37003,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         created_at:
           description: The date with timezone at which the resource was created.
@@ -37021,7 +37021,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     PaymentCollection:
       title: Payment Collection
       description: A payment collection allows grouping and managing a list of payments at one. This can be helpful when making additional payment for order edits or integrating installment payments.
@@ -37127,7 +37127,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     PaymentProvider:
       title: Payment Provider
       description: A payment provider represents a payment service installed in the Medusa backend, either through a plugin or backend customizations. It holds the payment service's installation status.
@@ -37209,7 +37209,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         amount:
           description: The amount that the Payment Session has been authorized for.
@@ -37604,7 +37604,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ProductCategory:
       title: Product Category
       description: A product category can be used to categorize products into a hierarchy of categories.
@@ -37695,7 +37695,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ProductCollection:
       title: Product Collection
       description: A Product Collection allows grouping together products for promotional purposes. For example, an admin can create a Summer collection, add products to it, and showcase it on the storefront.
@@ -37750,7 +37750,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ProductOption:
       title: Product Option
       description: A Product Option defines properties that may vary between different variants of a Product. Common Product Options are "Size" and "Color". Admins are free to create any product options.
@@ -37808,7 +37808,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ProductOptionValue:
       title: Product Option Value
       description: An option value is one of the possible values of a Product Option. Product Variants specify a unique combination of product option values.
@@ -37870,7 +37870,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ProductTag:
       title: Product Tag
       description: A Product Tag can be added to Products for easy filtering and grouping.
@@ -37912,7 +37912,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ProductTaxRate:
       title: Product Tax Rate
       description: This represents the association between a tax rate and a product to indicate that the product is taxed in a way different than the default.
@@ -37958,7 +37958,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ProductType:
       title: Product Type
       description: A Product Type can be added to Products for filtering and reporting purposes.
@@ -38000,7 +38000,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ProductTypeTaxRate:
       title: Product Type Tax Rate
       description: This represents the association between a tax rate and a product type to indicate that the product type is taxed in a different way than the default.
@@ -38046,7 +38046,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ProductVariant:
       title: Product Variant
       description: A Product Variant represents a Product with a specific set of Product Option configurations. The maximum number of Product Variants that a Product can have is given by the number of available Product Option combinations. A product must at least have one product variant.
@@ -38208,7 +38208,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         purchasable:
           description: |
             Only used with the inventory modules.
@@ -38407,7 +38407,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         created_at:
           description: The date with timezone at which the resource was created.
@@ -38425,7 +38425,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     Region:
       title: Region
       description: A region holds settings specific to a geographical location, including the currency, tax rates, and fulfillment and payment providers. A Region can consist of multiple countries to accomodate common shopping settings across countries.
@@ -38541,7 +38541,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ReservationItemDTO:
       title: Reservation item
       description: Represents a reservation of an inventory item at a stock location
@@ -38703,7 +38703,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         received_at:
           description: The date with timezone at which the return was received.
@@ -38726,7 +38726,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ReturnItem:
       title: Return Item
       description: A return item represents a line item in an order that is to be returned. It includes details related to the return and the reason behind it.
@@ -38801,7 +38801,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ReturnReason:
       title: Return Reason
       description: A Return Reason is a value defined by an admin. It can be used on Return Items in order to indicate why a Line Item was returned.
@@ -38869,7 +38869,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     SalesChannel:
       title: Sales Channel
       description: A Sales Channel is a method a business offers its products for purchase for the customers. For example, a Webshop can be a sales channel, and a mobile app can be another.
@@ -38927,7 +38927,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         carts:
           description: The associated carts.
           type: array
@@ -39157,7 +39157,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ShippingOption:
       title: Shipping Option
       description: A Shipping Option represents a way in which an Order or Return can be shipped. Shipping Options have an associated Fulfillment Provider that will be used when the fulfillment of an Order is initiated. Shipping Options themselves cannot be added to Carts, but serve as a template for Shipping Methods. This distinction makes it possible to customize individual Shipping Methods with additional information.
@@ -39269,7 +39269,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ShippingOptionRequirement:
       title: Shipping Option Requirement
       description: A shipping option requirement defines conditions that a Cart must satisfy for the Shipping Option to be available for usage in the Cart.
@@ -39372,7 +39372,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     ShippingTaxRate:
       title: Shipping Tax Rate
       description: This represents the tax rates applied on a shipping option.
@@ -39418,7 +39418,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     StagedJob:
       title: Staged Job
       description: A staged job resource
@@ -39692,7 +39692,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     Swap:
       title: Swap
       description: A swap can be created when a Customer wishes to exchange Products that they have purchased with different Products. It consists of a Return of previously purchased Products and a Fulfillment of new Products. It also includes information on any additional payment or refund required based on the difference between the exchanged products.
@@ -39830,7 +39830,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         created_at:
           description: The date with timezone at which the resource was created.
@@ -39853,7 +39853,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     TaxLine:
       title: Tax Line
       description: A tax line represents the taxes amount applied to a line item.
@@ -39900,7 +39900,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     TaxProvider:
       title: Tax Provider
       description: A tax provider represents a tax service installed in the Medusa backend, either through a plugin or backend customizations. It holds the tax service's installation status.
@@ -40004,7 +40004,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     TrackingLink:
       title: Tracking Link
       description: A tracking link holds information about tracking numbers for a Fulfillment. Tracking Links can optionally contain a URL that can be visited to see the status of the shipment. Typically, the tracking link is provided from the third-party service integrated through the used fulfillment provider.
@@ -40047,7 +40047,7 @@ components:
           nullable: true
           type: string
           externalDocs:
-            url: https://docs.medusajs.com/development/idempotency-key/overview.md
+            url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
             description: Learn more how to use the idempotency key.
         created_at:
           description: The date with timezone at which the resource was created.
@@ -40070,7 +40070,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     UpdateStockLocationInput:
       title: Update Stock Location Input
       description: Represents the Input to update a Stock Location
@@ -40160,7 +40160,7 @@ components:
             car: white
           externalDocs:
             description: Learn about the metadata attribute, and how to delete and update it.
-            url: https://docs.medusajs.com/development/entities/overview#metadata-attribute
+            url: https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
     VariantInventory:
       type: object
       required:

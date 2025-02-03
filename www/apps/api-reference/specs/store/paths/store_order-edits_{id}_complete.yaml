@@ -7,7 +7,7 @@ post:
     Collection API Routes.
   externalDocs:
     description: How to handle order edits in a storefront
-    url: https://docs.medusajs.com/modules/orders/storefront/handle-order-edits
+    url: https://docs.medusajs.com/v1/modules/orders/storefront/handle-order-edits
   parameters:
     - in: path
       name: id

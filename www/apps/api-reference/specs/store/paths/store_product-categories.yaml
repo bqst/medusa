@@ -10,7 +10,7 @@ get:
   externalDocs:
     description: How to retrieve a product category by its handle
     url: >-
-      https://docs.medusajs.com/modules/products/storefront/use-categories#get-a-category-by-its-handle
+      https://docs.medusajs.com/v1/modules/products/storefront/use-categories#get-a-category-by-its-handle
   parameters:
     - in: query
       name: q

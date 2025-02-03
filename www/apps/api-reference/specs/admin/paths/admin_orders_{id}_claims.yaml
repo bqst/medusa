@@ -7,7 +7,7 @@ post:
     type is `refund`, the refund is processed as well.
   externalDocs:
     description: How are claims created
-    url: https://docs.medusajs.com/modules/orders/claims#how-are-claims-created
+    url: https://docs.medusajs.com/v1/modules/orders/claims#how-are-claims-created
   x-authenticated: true
   parameters:
     - in: path

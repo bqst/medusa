@@ -7,7 +7,7 @@ post:
   x-authenticated: true
   externalDocs:
     description: Return creation process
-    url: https://docs.medusajs.com/modules/orders/returns#returns-process
+    url: https://docs.medusajs.com/v1/modules/orders/returns#returns-process
   parameters:
     - in: path
       name: id

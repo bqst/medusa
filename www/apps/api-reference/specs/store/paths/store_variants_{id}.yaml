@@ -17,7 +17,7 @@ get:
   externalDocs:
     description: How to pass product pricing parameters
     url: >-
-      https://docs.medusajs.com/modules/products/storefront/show-products#product-pricing-parameters
+      https://docs.medusajs.com/v1/modules/products/storefront/show-products#product-pricing-parameters
   parameters:
     - in: path
       name: id

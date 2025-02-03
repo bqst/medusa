@@ -20,7 +20,7 @@ post:
     key in the `Idempotency-Key` header.
   externalDocs:
     description: How to create a swap
-    url: https://docs.medusajs.com/modules/orders/storefront/create-swap
+    url: https://docs.medusajs.com/v1/modules/orders/storefront/create-swap
   requestBody:
     content:
       application/json:

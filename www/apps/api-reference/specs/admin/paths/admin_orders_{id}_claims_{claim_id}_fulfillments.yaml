@@ -9,7 +9,7 @@ post:
   x-authenticated: true
   externalDocs:
     description: Fulfill a claim
-    url: https://docs.medusajs.com/modules/orders/claims#fulfill-a-claim
+    url: https://docs.medusajs.com/v1/modules/orders/claims#fulfill-a-claim
   parameters:
     - in: path
       name: id

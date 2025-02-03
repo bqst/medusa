@@ -277,7 +277,8 @@ post:
     is confirmed, which can be done using the Confirm Batch Job API Route.
   externalDocs:
     description: How to create a batch job
-    url: https://docs.medusajs.com/development/batch-jobs/create#create-batch-job
+    url: >-
+      https://docs.medusajs.com/v1/development/batch-jobs/create#create-batch-job
   x-authenticated: true
   requestBody:
     content:

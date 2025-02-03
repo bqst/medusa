@@ -8,7 +8,8 @@ post:
   x-authenticated: true
   externalDocs:
     description: Handling swap fulfillments
-    url: https://docs.medusajs.com/modules/orders/swaps#handling-swap-fulfillment
+    url: >-
+      https://docs.medusajs.com/v1/modules/orders/swaps#handling-swap-fulfillment
   parameters:
     - in: path
       name: id

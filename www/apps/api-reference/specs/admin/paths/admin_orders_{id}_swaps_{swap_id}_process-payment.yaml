@@ -9,7 +9,7 @@ post:
   x-authenticated: true
   externalDocs:
     description: Handling a swap's payment
-    url: https://docs.medusajs.com/modules/orders/swaps#handling-swap-payment
+    url: https://docs.medusajs.com/v1/modules/orders/swaps#handling-swap-payment
   parameters:
     - in: path
       name: id

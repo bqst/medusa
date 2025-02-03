@@ -5,7 +5,7 @@ get:
   externalDocs:
     description: How to implement shipping step in checkout
     url: >-
-      https://docs.medusajs.com/modules/carts-and-checkout/storefront/implement-checkout-flow#shipping-step
+      https://docs.medusajs.com/v1/modules/carts-and-checkout/storefront/implement-checkout-flow#shipping-step
   parameters:
     - in: path
       name: cart_id

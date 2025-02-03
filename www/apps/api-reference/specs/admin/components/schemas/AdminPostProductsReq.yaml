@@ -196,7 +196,7 @@ properties:
               Learn about the metadata attribute, and how to delete and update
               it.
             url: >-
-              https://docs.medusajs.com/development/entities/overview#metadata-attribute
+              https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute
         prices:
           type: array
           description: >-
@@ -204,7 +204,7 @@ properties:
             different prices for each region or currency code.
           externalDocs:
             url: >-
-              https://docs.medusajs.com/modules/products/admin/manage-products#product-variant-prices
+              https://docs.medusajs.com/v1/modules/products/admin/manage-products#product-variant-prices
             description: Product variant pricing.
           items:
             type: object
@@ -245,7 +245,7 @@ properties:
             as in the `options` field of the product.
           externalDocs:
             url: >-
-              https://docs.medusajs.com/modules/products/admin/manage-products#create-a-product
+              https://docs.medusajs.com/v1/modules/products/admin/manage-products#create-a-product
             description: Example of how to create a product with options and variants
           items:
             type: object
@@ -287,4 +287,4 @@ properties:
     externalDocs:
       description: Learn about the metadata attribute, and how to delete and update it.
       url: >-
-        https://docs.medusajs.com/development/entities/overview#metadata-attribute
+        https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute

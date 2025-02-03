@@ -8,7 +8,7 @@ get:
   externalDocs:
     description: How to use regions in a storefront
     url: >-
-      https://docs.medusajs.com/modules/regions-and-currencies/storefront/use-regions
+      https://docs.medusajs.com/v1/modules/regions-and-currencies/storefront/use-regions
   parameters:
     - in: query
       name: offset

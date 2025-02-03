@@ -19,7 +19,8 @@ post:
     key in the `Idempotency-Key` header.
   externalDocs:
     description: Cart completion overview
-    url: https://docs.medusajs.com/modules/carts-and-checkout/cart#cart-completion
+    url: >-
+      https://docs.medusajs.com/v1/modules/carts-and-checkout/cart#cart-completion
   parameters:
     - in: path
       name: id
