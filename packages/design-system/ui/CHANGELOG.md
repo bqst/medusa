@@ -1,5 +1,14 @@
 # @medusajs/ui
 
+## 4.0.8
+
+### Patch Changes
+
+- [#11442](https://github.com/medusajs/medusa/pull/11442) [`c40fb01d9200283c5d69f3295e65fccc56a9a76f`](https://github.com/medusajs/medusa/commit/c40fb01d9200283c5d69f3295e65fccc56a9a76f) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(ui): Disable select cells if the row cannot be selected
+
+- Updated dependencies [[`cc4c5c86e227a6693d53ea6b5b9e62d0a7c57fa2`](https://github.com/medusajs/medusa/commit/cc4c5c86e227a6693d53ea6b5b9e62d0a7c57fa2)]:
+  - @medusajs/icons@3.0.0
+
 ## 4.0.7
 
 ### Patch Changes

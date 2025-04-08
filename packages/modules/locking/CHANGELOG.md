@@ -1,5 +1,14 @@
 # @medusajs/locking
 
+## 3.0.0
+
+### Patch Changes
+
+- [#11874](https://github.com/medusajs/medusa/pull/11874) [`aa6d5aa3cf45a07f6276bea8592ad0743c846165`](https://github.com/medusajs/medusa/commit/aa6d5aa3cf45a07f6276bea8592ad0743c846165) Thanks [@thetutlage](https://github.com/thetutlage)! - fix: register locking provider with its unique id
+
+- Updated dependencies [[`ec56a8bc857a74788df6523af25914da95c4c1d8`](https://github.com/medusajs/medusa/commit/ec56a8bc857a74788df6523af25914da95c4c1d8)]:
+  - @medusajs/framework@3.0.0
+
 ## 2.6.1
 
 ### Patch Changes

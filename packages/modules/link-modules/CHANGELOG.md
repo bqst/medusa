@@ -1,5 +1,20 @@
 # @medusajs/link-modules
 
+## 3.0.0
+
+### Minor Changes
+
+- [`386205d0f41828b82d519d2f5b8e07b41907a8ae`](https://github.com/medusajs/medusa/commit/386205d0f41828b82d519d2f5b8e07b41907a8ae) Thanks [@olivermrbl](https://github.com/olivermrbl)! - feat: Change customer to account_holder to be one-to-many
+
+### Patch Changes
+
+- [#11767](https://github.com/medusajs/medusa/pull/11767) [`cae47d9e49e9a17d8395f7b390f6ec0a2f9b8dc2`](https://github.com/medusajs/medusa/commit/cae47d9e49e9a17d8395f7b390f6ec0a2f9b8dc2) Thanks [@thetutlage](https://github.com/thetutlage)! - feat: add check for uniqueness when creating links with isList=false
+
+- [#12062](https://github.com/medusajs/medusa/pull/12062) [`2270f29ec544b14c26b246a59f80be121f8014a1`](https://github.com/medusajs/medusa/commit/2270f29ec544b14c26b246a59f80be121f8014a1) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - chore(link-modules): backward compatible links
+
+- Updated dependencies [[`ec56a8bc857a74788df6523af25914da95c4c1d8`](https://github.com/medusajs/medusa/commit/ec56a8bc857a74788df6523af25914da95c4c1d8)]:
+  - @medusajs/framework@3.0.0
+
 ## 2.6.1
 
 ### Patch Changes

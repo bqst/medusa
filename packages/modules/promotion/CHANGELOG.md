@@ -1,5 +1,16 @@
 # @medusajs/promotion
 
+## 3.0.0
+
+### Patch Changes
+
+- [#11799](https://github.com/medusajs/medusa/pull/11799) [`67b308c8eb52950991df34ac1c8d007a14cfaa1e`](https://github.com/medusajs/medusa/commit/67b308c8eb52950991df34ac1c8d007a14cfaa1e) Thanks [@riqwan](https://github.com/riqwan)! - fix(promotion): percentage value is accounted for in buyget promotions
+
+- [#11992](https://github.com/medusajs/medusa/pull/11992) [`c870a7a1baf7db748a831265f06dd4b7378b262e`](https://github.com/medusajs/medusa/commit/c870a7a1baf7db748a831265f06dd4b7378b262e) Thanks [@riqwan](https://github.com/riqwan)! - fix(promotion,utils): fix case where multiple percentage promotions werent applied
+
+- Updated dependencies [[`ec56a8bc857a74788df6523af25914da95c4c1d8`](https://github.com/medusajs/medusa/commit/ec56a8bc857a74788df6523af25914da95c4c1d8)]:
+  - @medusajs/framework@3.0.0
+
 ## 2.6.1
 
 ### Patch Changes
