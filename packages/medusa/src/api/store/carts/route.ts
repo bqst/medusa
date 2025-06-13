@@ -8,7 +8,7 @@ import {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework/http"
-import { refetchCart } from "./helpers"
+import { refetchCartWithInventoryQuantity } from "./helpers"
 
 export const POST = async (
   req: AuthenticatedMedusaRequest<HttpTypes.StoreCreateCart & AdditionalData>,
@@ -23,7 +23,12 @@ export const POST = async (
     input: workflowInput as CreateCartWorkflowInputDTO,
   })
 
-  const cart = await refetchCart(result.id, req.scope, req.queryConfig.fields)
+  const cart = await refetchCartWithInventoryQuantity(
+    result.id,
+    req.scope,
+    req.queryConfig.fields,
+    req
+  )
 
   res.status(200).json({ cart })
 }

@@ -5,24 +5,29 @@ import {
   UpdateCartDataDTO,
 } from "@medusajs/framework/types"
 
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
-import { refetchCart } from "../helpers"
+import {
+  MedusaRequest,
+  MedusaResponse,
+  MedusaStoreRequest,
+} from "@medusajs/framework/http"
+import { refetchCart, refetchCartWithInventoryQuantity } from "../helpers"
 
 export const GET = async (
-  req: MedusaRequest,
+  req: MedusaStoreRequest,
   res: MedusaResponse<HttpTypes.StoreCartResponse>
 ) => {
-  const cart = await refetchCart(
+  const cart = await refetchCartWithInventoryQuantity(
     req.params.id,
     req.scope,
-    req.queryConfig.fields
+    req.queryConfig.fields,
+    req
   )
 
   res.json({ cart })
 }
 
 export const POST = async (
-  req: MedusaRequest<UpdateCartDataDTO & AdditionalData>,
+  req: MedusaStoreRequest<UpdateCartDataDTO & AdditionalData>,
   res: MedusaResponse<{
     cart: HttpTypes.StoreCart
   }>
@@ -36,10 +41,11 @@ export const POST = async (
     },
   })
 
-  const cart = await refetchCart(
+  const cart = await refetchCartWithInventoryQuantity(
     req.params.id,
     req.scope,
-    req.queryConfig.fields
+    req.queryConfig.fields,
+    req
   )
 
   res.status(200).json({ cart })
