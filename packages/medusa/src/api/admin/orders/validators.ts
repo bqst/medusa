@@ -53,6 +53,8 @@ export const AdminGetOrdersParams = createFindParams({
     sales_channel_id: z.array(z.string()).optional(),
     region_id: z.union([z.string(), z.array(z.string())]).optional(),
     customer_id: z.union([z.string(), z.array(z.string())]).optional(),
+    payment_status: z.union([z.string(), z.array(z.string())]).optional(),
+    fulfillment_status: z.union([z.string(), z.array(z.string())]).optional(),
     q: z.string().optional(),
     created_at: createOperatorMap().optional(),
     updated_at: createOperatorMap().optional(),

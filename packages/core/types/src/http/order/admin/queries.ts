@@ -24,6 +24,14 @@ export interface AdminOrderFilters extends FindParams, BaseOrderFilters {
    */
   q?: string
   /**
+   * Filter by payment status(es).
+   */
+  payment_status?: string[] | string
+  /**
+   * Filter by fulfillment status(es).
+   */
+  fulfillment_status?: string[] | string
+  /**
    * Apply filters on the fulfillment's creation date.
    */
   created_at?: OperatorMap<string>

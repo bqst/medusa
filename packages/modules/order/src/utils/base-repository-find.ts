@@ -2,7 +2,7 @@ import { Constructor, Context, DAL } from "@medusajs/framework/types"
 import { toMikroORMEntity } from "@medusajs/framework/utils"
 import { LoadStrategy } from "@medusajs/framework/mikro-orm/core"
 import { Order, OrderClaim } from "@models"
-import { mapRepositoryToOrderModel } from "."
+import { applyStatusFilters, mapRepositoryToOrderModel } from "."
 
 export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
   klass.prototype.find = async function find(
@@ -82,6 +82,47 @@ export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
 
     config.where ??= {}
 
+    // Extract status filters and remove from where clause
+    const paymentStatusFilter = config.where.payment_status
+    const fulfillmentStatusFilter = config.where.fulfillment_status
+    delete config.where.payment_status
+    delete config.where.fulfillment_status
+
+    // Apply status filters using subqueries
+    if (paymentStatusFilter || fulfillmentStatusFilter) {
+      const qb = manager.qb(this.entity)
+      qb.where(config.where)
+      if (config.options.populate) {
+        qb.populate(config.options.populate)
+      }
+      if (config.options.fields) {
+        qb.select(config.options.fields)
+      }
+      if (config.options.limit) {
+        qb.limit(config.options.limit)
+      }
+      if (config.options.offset) {
+        qb.offset(config.options.offset)
+      }
+      if (config.options.orderBy) {
+        Object.entries(config.options.orderBy).forEach(([key, direction]) => {
+          qb.orderBy({ [key]: direction })
+        })
+      }
+      if (config.options.populateWhere) {
+        qb.populate(Object.keys(config.options.populateWhere), config.options.populateWhere)
+      }
+
+      applyStatusFilters(
+        { payment_status: paymentStatusFilter, fulfillment_status: fulfillmentStatusFilter },
+        qb.getKnexQuery(),
+        knex,
+        orderAlias
+      )
+
+      return await qb.getResultList()
+    }
+
     return await manager.find(this.entity, config.where, config.options)
   }
 
@@ -146,6 +187,47 @@ export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
 
     if (!config.options.orderBy) {
       config.options.orderBy = { id: "ASC" }
+    }
+
+    // Extract status filters and remove from where clause
+    const paymentStatusFilter = config.where.payment_status
+    const fulfillmentStatusFilter = config.where.fulfillment_status
+    delete config.where.payment_status
+    delete config.where.fulfillment_status
+
+    // Apply status filters using subqueries
+    if (paymentStatusFilter || fulfillmentStatusFilter) {
+      const qb = manager.qb(this.entity)
+      qb.where(config.where)
+      if (config.options.populate) {
+        qb.populate(config.options.populate)
+      }
+      if (config.options.fields) {
+        qb.select(config.options.fields)
+      }
+      if (config.options.limit) {
+        qb.limit(config.options.limit)
+      }
+      if (config.options.offset) {
+        qb.offset(config.options.offset)
+      }
+      if (config.options.orderBy) {
+        Object.entries(config.options.orderBy).forEach(([key, direction]) => {
+          qb.orderBy({ [key]: direction })
+        })
+      }
+      if (config.options.populateWhere) {
+        qb.populate(Object.keys(config.options.populateWhere), config.options.populateWhere)
+      }
+
+      applyStatusFilters(
+        { payment_status: paymentStatusFilter, fulfillment_status: fulfillmentStatusFilter },
+        qb.getKnexQuery(),
+        knex,
+        orderAlias
+      )
+
+      return await qb.getResultAndCount()
     }
 
     return await manager.findAndCount(this.entity, config.where, config.options)
