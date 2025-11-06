@@ -134,6 +134,8 @@ export const getOrdersListWorkflow = createWorkflow(
       ])
     })
 
+    console.log("getOrdersListWorkflow > fields", fields)
+
     const orders: OrderDTO[] = useRemoteQueryStep({
       entry_point: "orders",
       fields,

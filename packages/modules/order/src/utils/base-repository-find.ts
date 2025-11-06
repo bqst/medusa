@@ -4,6 +4,116 @@ import { LoadStrategy } from "@medusajs/framework/mikro-orm/core"
 import { Order, OrderClaim } from "@models"
 import { applyStatusFilters, mapRepositoryToOrderModel } from "."
 
+/**
+ * Apply calculated field filters (payment_status, fulfillment_status) to a query.
+ * These fields are not database columns but are calculated via subqueries.
+ *
+ * @returns The query result if filters were applied, null otherwise
+ */
+async function applyCalculatedFieldFilters<T>(
+  manager: any,
+  entity: any,
+  config: any,
+  knex: any,
+  orderAlias: string,
+  isCount: boolean
+): Promise<[T[], number] | T[] | null> {
+
+  console.log("config", config)
+
+  // Extract status filters FIRST (before any deletion)
+  const paymentStatusFilter = config.where.payment_status
+  const fulfillmentStatusFilter = config.where.fulfillment_status
+
+  console.log("paymentStatusFilter", paymentStatusFilter)
+  console.log("fulfillmentStatusFilter", fulfillmentStatusFilter)
+
+  // Return null if no status filters are present
+  if (!paymentStatusFilter && !fulfillmentStatusFilter) {
+    return null
+  }
+
+  // Create a CLEAN where object without status fields (don't mutate original)
+  const cleanWhere = { ...config.where }
+  delete cleanWhere.payment_status
+  delete cleanWhere.fulfillment_status
+
+  console.log("cleanWhere AFTER delete", cleanWhere)
+
+  // Build query with status filters - ensure all options are clean before building
+  const rawPopulate = config.options.populate || []
+  const cleanedPopulate = Array.isArray(rawPopulate)
+    ? rawPopulate.filter((p) => p && typeof p === 'string' && p.trim() !== '')
+    : []
+
+
+  console.log("cleanedPopulate", cleanedPopulate)
+  
+  const cleanedFields = config.options.fields
+    ? config.options.fields.filter((f) => f && typeof f === 'string' && f.trim() !== "" && f !== "payment_status" && f !== "fulfillment_status")
+    : undefined
+
+  const cleanedOptions = {
+    ...config.options,
+    populate: cleanedPopulate,
+    fields: cleanedFields,
+  }
+
+  console.log("cleanedOptions", cleanedOptions)
+
+  const qb = manager.qb(entity)
+  qb.where(cleanWhere)
+
+  // Apply cleaned populate - only if we have valid values
+  if (cleanedPopulate.length > 0) {
+    qb.populate(cleanedPopulate)
+  }
+
+  // Apply cleaned fields
+  if (cleanedOptions.fields && cleanedOptions.fields.length > 0) {
+    qb.select(cleanedOptions.fields)
+  }
+
+  if (cleanedOptions.limit) {
+    qb.limit(cleanedOptions.limit)
+  }
+
+  if (cleanedOptions.offset) {
+    qb.offset(cleanedOptions.offset)
+  }
+
+  if (cleanedOptions.orderBy) {
+    Object.entries(cleanedOptions.orderBy).forEach(([key, direction]) => {
+      qb.orderBy({ [key]: direction })
+    })
+  }
+
+  if (cleanedOptions.populateWhere) {
+    const validPopulateKeys = Object.keys(cleanedOptions.populateWhere).filter(k => k != null && k !== "" && typeof k === 'string')
+    if (validPopulateKeys.length > 0) {
+      // Don't override if already populated
+      const newPopulate = validPopulateKeys.filter(k => !cleanedOptions.populate.includes(k))
+      if (newPopulate.length > 0) {
+        qb.populate(newPopulate, cleanedOptions.populateWhere)
+      }
+    }
+  }
+
+  // Apply SQL subqueries for status filtering
+  // Get Knex query ONLY ONCE after all QB operations are done
+  const knexQuery = qb.getKnexQuery()
+  
+  applyStatusFilters(
+    { payment_status: paymentStatusFilter, fulfillment_status: fulfillmentStatusFilter },
+    knexQuery,
+    knex,
+    orderAlias
+  )
+
+  // Execute query and return results
+  return isCount ? await qb.getResultAndCount() : await qb.getResultList()
+}
+
 export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
   klass.prototype.find = async function find(
     this: any,
@@ -82,45 +192,18 @@ export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
 
     config.where ??= {}
 
-    // Extract status filters and remove from where clause
-    const paymentStatusFilter = config.where.payment_status
-    const fulfillmentStatusFilter = config.where.fulfillment_status
-    delete config.where.payment_status
-    delete config.where.fulfillment_status
+    // Try to apply calculated field filters (payment_status, fulfillment_status)
+    const result = await applyCalculatedFieldFilters<T>(
+      manager,
+      this.entity,
+      config,
+      knex,
+      orderAlias,
+      false
+    )
 
-    // Apply status filters using subqueries
-    if (paymentStatusFilter || fulfillmentStatusFilter) {
-      const qb = manager.qb(this.entity)
-      qb.where(config.where)
-      if (config.options.populate) {
-        qb.populate(config.options.populate)
-      }
-      if (config.options.fields) {
-        qb.select(config.options.fields)
-      }
-      if (config.options.limit) {
-        qb.limit(config.options.limit)
-      }
-      if (config.options.offset) {
-        qb.offset(config.options.offset)
-      }
-      if (config.options.orderBy) {
-        Object.entries(config.options.orderBy).forEach(([key, direction]) => {
-          qb.orderBy({ [key]: direction })
-        })
-      }
-      if (config.options.populateWhere) {
-        qb.populate(Object.keys(config.options.populateWhere), config.options.populateWhere)
-      }
-
-      applyStatusFilters(
-        { payment_status: paymentStatusFilter, fulfillment_status: fulfillmentStatusFilter },
-        qb.getKnexQuery(),
-        knex,
-        orderAlias
-      )
-
-      return await qb.getResultList()
+    if (result !== null) {
+      return result as T[]
     }
 
     return await manager.find(this.entity, config.where, config.options)
@@ -189,45 +272,18 @@ export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
       config.options.orderBy = { id: "ASC" }
     }
 
-    // Extract status filters and remove from where clause
-    const paymentStatusFilter = config.where.payment_status
-    const fulfillmentStatusFilter = config.where.fulfillment_status
-    delete config.where.payment_status
-    delete config.where.fulfillment_status
+    // Try to apply calculated field filters (payment_status, fulfillment_status)
+    const result = await applyCalculatedFieldFilters<T>(
+      manager,
+      this.entity,
+      config,
+      knex,
+      orderAlias,
+      true
+    )
 
-    // Apply status filters using subqueries
-    if (paymentStatusFilter || fulfillmentStatusFilter) {
-      const qb = manager.qb(this.entity)
-      qb.where(config.where)
-      if (config.options.populate) {
-        qb.populate(config.options.populate)
-      }
-      if (config.options.fields) {
-        qb.select(config.options.fields)
-      }
-      if (config.options.limit) {
-        qb.limit(config.options.limit)
-      }
-      if (config.options.offset) {
-        qb.offset(config.options.offset)
-      }
-      if (config.options.orderBy) {
-        Object.entries(config.options.orderBy).forEach(([key, direction]) => {
-          qb.orderBy({ [key]: direction })
-        })
-      }
-      if (config.options.populateWhere) {
-        qb.populate(Object.keys(config.options.populateWhere), config.options.populateWhere)
-      }
-
-      applyStatusFilters(
-        { payment_status: paymentStatusFilter, fulfillment_status: fulfillmentStatusFilter },
-        qb.getKnexQuery(),
-        knex,
-        orderAlias
-      )
-
-      return await qb.getResultAndCount()
+    if (result !== null) {
+      return result as [T[], number]
     }
 
     return await manager.findAndCount(this.entity, config.where, config.options)

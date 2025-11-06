@@ -8,8 +8,6 @@ export const defaultAdminOrderFields = [
   "metadata",
   "created_at",
   "updated_at",
-  "payment_status",
-  "fulfillment_status",
 ]
 
 export const defaultAdminRetrieveOrderFields = [
